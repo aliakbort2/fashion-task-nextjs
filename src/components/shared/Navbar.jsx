@@ -35,20 +35,20 @@ const Navbar = () => {
   return (
     <div>
       <Container>
-        <div className="h-20 flex items-center justify-between">
+        <div className="h-14 lg:h-20 flex items-center justify-between">
           {/* Menu Toggle Button (Mobile View) */}
           <div className="lg:hidden">
             <button onClick={toggleMenu} className="focus:outline-none">
               {menuOpen ? (
-                <HiX className="text-3xl text-gray-700" />
+                <HiX className="text-2xl text-gray-700 " />
               ) : (
-                <CgMenuRight className="text-3xl text-gray-700 rotate-180" />
+                <CgMenuRight className="text-2xl text-gray-700 rotate-180" />
               )}
             </button>
           </div>
 
           {/* logo */}
-          <div className="w-24 sm:w-32 md:w-36 lg:w-[162px]">
+          <div className="w-24 sm:w-32 md:w-36 lg:w-[162px] h-6 lg:h-10 mr-auto md:mr-0 ml-2 md:ml-0">
             <Link href={"/"}>
               <Image
                 src="/assets/logo.png"
@@ -61,7 +61,7 @@ const Navbar = () => {
 
           {/* Menu */}
           <div
-            className={`absolute top-20 left-0 w-full lg:static lg:w-auto bg-white lg:bg-transparent p-5 lg:p-0 z-50 lg:flex lg:items-center transition-all duration-300 ease-in-out ${
+            className={`absolute top-14 left-0 w-full lg:static lg:w-auto bg-white lg:bg-transparent p-5 lg:p-0 z-50 lg:flex lg:items-center transition-all duration-300 ease-in-out ${
               menuOpen
                 ? "max-h-screen opacity-100"
                 : "max-h-0 opacity-0 lg:opacity-100"
