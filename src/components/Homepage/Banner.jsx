@@ -1,5 +1,4 @@
 import { LiaLongArrowAltUpSolid } from "react-icons/lia";
-import { TbTruckDelivery } from "react-icons/tb";
 import Container from "../ui/Container";
 import Image from "next/image";
 
