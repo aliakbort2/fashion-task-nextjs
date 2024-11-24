@@ -11,6 +11,9 @@ module.exports = {
         primary: "#7E53D4",
         secondary: "#F4F8FF",
       },
+      backgroundImage: {
+        "hero-pattern": "url('/assets/hero.png')",
+      },
     },
   },
   plugins: [],
