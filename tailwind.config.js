@@ -13,6 +13,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero-pattern": "url('/assets/hero.png')",
+        "hero-option": "url('/assets/option.png')",
       },
     },
   },
