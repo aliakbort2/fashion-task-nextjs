@@ -4,11 +4,11 @@ import React from "react";
 import Rating from "react-rating";
 
 const ProductCard = ({ product }) => {
-  const { image, title, price, rating } = product || {};
+  const { image, title, price, rating, discount } = product || {};
 
   return (
     <div className="bg-white p-2 rounded-2xl hover:shadow-md hover:tra">
-      <div className="h-[260px] bg-[#F6F5FD] rounded-lg mb-4 flex justify-center items-center">
+      <div className="h-[260px] bg-[#F6F5FD] rounded-lg mb-4 flex justify-center items-center relative">
         {image?.[0] && (
           <Image
             src={image[0]} // Get the first image from the array
@@ -18,6 +18,10 @@ const ProductCard = ({ product }) => {
             // className="h-full w-full"
           />
         )}
+
+        <span className="absolute top-0 right-4 bg-primary text-white text-[13px] font-bold px-[7px] pb-[7px] pt-[2px] rounded-b-full text-center">
+          Up <br /> to <br /> {discount}
+        </span>
       </div>
       <div>
         <h2 className="mb-2 flex items-center pa-1">
