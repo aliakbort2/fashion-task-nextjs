@@ -76,6 +76,7 @@ const ProductDetailsPage = ({ params }) => {
 
       <div>
         <Container>
+          {/* top part */}
           <div className="relative flex justify-between items-center mb-4 md:mb-6">
             <div>
               <h4 className="text-[19px] md:text-[28px] font-bold">
@@ -133,6 +134,10 @@ const ProductDetailsPage = ({ params }) => {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          <button className="bg-primary text-white py-2 mt-6 px-6 md:px-0 md:w-full rounded-lg flex justify-center mx-auto">
+            See more
+          </button>
         </Container>
       </div>
     </div>

@@ -104,6 +104,10 @@ const BigDeal = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <button className="bg-primary text-white py-2 mt-6 px-6 rounded-lg flex justify-center mx-auto">
+          See more
+        </button>
       </Container>
     </div>
   );

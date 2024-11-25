@@ -57,7 +57,7 @@ const Arrivals = () => {
               New Arrivals
             </h4>
           </div>
-          <div className="">
+          <div>
             <div className="button-next-slide absolute bottom-2 right-0 z-10  text-white grid place-items-center cursor-pointer">
               <p className="button-next-slide border-2 border-primary rounded-full">
                 <LiaLongArrowAltRightSolid className="text-primary text-2xl" />
@@ -108,6 +108,10 @@ const Arrivals = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <button className="bg-primary text-white py-2 mt-6 px-6 rounded-lg flex justify-center mx-auto">
+          See more
+        </button>
       </Container>
     </div>
   );
