@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import Rating from "react-rating";
 
 const ProductCard = ({ product }) => {
-  const { image, title, price, rating, discount, category } = product || {};
+  const { _id, image, title, price, rating, discount, category } =
+    product || {};
 
   return (
     <div className="bg-white p-2 rounded-2xl hover:shadow-md hover:tra">
@@ -66,9 +68,11 @@ const ProductCard = ({ product }) => {
           <p>{title}</p>
           <h4 className="text-[19px] font-semibold">BDT {Math.round(price)}</h4>
         </div>
-        <button className="border border-primary text-primary py-[9.5px] w-full rounded hover:bg-primary hover:text-white hover:transition-all">
-          Add to Cart
-        </button>
+        <Link href={`/products/${_id}`}>
+          <button className="border border-primary text-primary py-[9.5px] w-full rounded hover:bg-primary hover:text-white hover:transition-all">
+            Add to Cart
+          </button>
+        </Link>
       </div>
     </div>
   );
