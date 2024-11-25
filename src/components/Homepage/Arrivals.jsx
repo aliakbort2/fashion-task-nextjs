@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {
-  LiaLongArrowAltRightSolid,
-  LiaLongArrowAltLeftSolid,
-} from "react-icons/lia";
 import Container from "../ui/Container";
-import ProductCard from "../card/ProductCard";
+import ArrivalsCard from "../card/ArrivalsCard";
+import {
+  LiaLongArrowAltLeftSolid,
+  LiaLongArrowAltRightSolid,
+} from "react-icons/lia";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,7 +13,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const BigDeal = () => {
+const Arrivals = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,23 +35,27 @@ const BigDeal = () => {
   }, []);
 
   const filteredProducts = products.filter(
-    (product) => product.category === "summer"
+    (product) => product.category === "arrivals"
   );
+
+  //console.log(filteredProducts);
 
   if (isLoading) {
     return <p>Loading...</p>;
   }
 
   return (
-    <div className="mb-[145px] md:mb-[111px] -mt-40 md:-mt-10">
+    <div className="mt-8 md:mt-10 mb-8 md:mb-12">
       <Container>
         {/* top part */}
         <div className="relative flex justify-between items-center mb-4 md:mb-6">
           <div>
             <h5 className="text-base md:text-[19px] mb-1 text-primary">
-              SUMMER
+              FEATURED PRODUCT
             </h5>
-            <h4 className="text-[19px] md:text-[28px] font-bold">Big DEAL</h4>
+            <h4 className="text-[19px] md:text-[28px] font-bold">
+              New Arrivals
+            </h4>
           </div>
           <div className="">
             <div className="button-next-slide absolute bottom-2 right-0 z-10  text-white grid place-items-center cursor-pointer">
@@ -90,14 +94,14 @@ const BigDeal = () => {
           {filteredProducts.map((product, index) => (
             <SwiperSlide key={index}>
               <div className="lg:hidden">
-                <ProductCard product={product} />
+                <ArrivalsCard product={product} />
               </div>
 
               {/* Large Devices: Show 8 products per row */}
               <div className="hidden lg:block">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {products.slice(index, index + 8).map((product, idx) => (
-                    <ProductCard key={idx} product={product} />
+                  {products.slice(index, index + 4).map((product, idx) => (
+                    <ArrivalsCard key={idx} product={product} />
                   ))}
                 </div>
               </div>
@@ -109,4 +113,4 @@ const BigDeal = () => {
   );
 };
 
-export default BigDeal;
+export default Arrivals;
