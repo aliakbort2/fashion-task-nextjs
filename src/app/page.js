@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Arrivals from "@/components/Homepage/Arrivals";
 import Banner from "@/components/Homepage/Banner";
 import BigDeal from "@/components/Homepage/BigDeal";
