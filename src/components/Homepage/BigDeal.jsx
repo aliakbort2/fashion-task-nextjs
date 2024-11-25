@@ -7,6 +7,18 @@ import {
 import Container from "../ui/Container";
 import ProductCard from "../card/ProductCard";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
+//-->
+import {
+  MdOutlineKeyboardDoubleArrowLeft,
+  MdOutlineKeyboardDoubleArrowRight,
+} from "react-icons/md";
+
 const BigDeal = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,31 +45,66 @@ const BigDeal = () => {
 
   return (
     <div>
-      {/* top part */}
       <Container>
-        <div className="flex justify-between items-center mt-16 mb-4 md:mb-6">
+        {/* top part */}
+        <div className="relative flex justify-between items-center mt-16 mb-4 md:mb-6">
           <div>
             <h5 className="text-base md:text-[19px] mb-1 text-primary">
               SUMMER
             </h5>
             <h4 className="text-[19px] md:text-[28px] font-bold">Big DEAL</h4>
           </div>
-          <div className="flex gap-5">
-            <p className="border-2 border-primary rounded-full">
-              <LiaLongArrowAltRightSolid className="text-primary text-2xl" />
-            </p>
-            <p className="border-2 border-primary rounded-full">
-              <LiaLongArrowAltLeftSolid className="text-primary text-2xl" />
-            </p>
+          <div className="">
+            <div className="button-next-slide absolute bottom-2 right-0 z-10  text-white grid place-items-center cursor-pointer">
+              <p className="button-next-slide border-2 border-primary rounded-full">
+                <LiaLongArrowAltRightSolid className="text-primary text-2xl" />
+              </p>
+            </div>
+            <div className="button-prev-slide absolute z-10 bottom-2 right-8 text-white grid place-items-center cursor-pointer">
+              <p className="button-prev-slid border-2 border-primary rounded-full">
+                <LiaLongArrowAltLeftSolid className="text-primary text-2xl" />
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Show All Products */}
-        <div className="grid grid-cols-4 gap-6">
-          {products?.map((product) => (
-            <ProductCard key={product._id} product={product} />
+        <Swiper
+          navigation={{
+            nextEl: ".button-next-slide",
+            prevEl: ".button-prev-slide",
+          }}
+          loop={true}
+          modules={[Navigation]}
+          spaceBetween={24}
+          breakpoints={{
+            640: {
+              slidesPerView: 1, // Small devices: Show 1 product per slide
+            },
+            1024: {
+              slidesPerView: 1, // Large devices: Use grid for 8 products per slide
+            },
+          }}
+          className="mySwiper"
+        >
+          {/* Small Devices: Show 1 product per slide */}
+          {products.map((product, index) => (
+            <SwiperSlide key={index}>
+              <div className="lg:hidden">
+                <ProductCard product={product} />
+              </div>
+
+              {/* Large Devices: Show 8 products per row */}
+              <div className="hidden lg:block">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {products.slice(index, index + 8).map((product, idx) => (
+                    <ProductCard key={idx} product={product} />
+                  ))}
+                </div>
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </Container>
     </div>
   );
