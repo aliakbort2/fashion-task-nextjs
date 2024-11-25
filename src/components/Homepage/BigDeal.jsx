@@ -13,12 +13,6 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-//-->
-import {
-  MdOutlineKeyboardDoubleArrowLeft,
-  MdOutlineKeyboardDoubleArrowRight,
-} from "react-icons/md";
-
 const BigDeal = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +28,7 @@ const BigDeal = () => {
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
+        setIsLoading(false);
       }
     };
     fetchProducts();
@@ -44,10 +39,10 @@ const BigDeal = () => {
   }
 
   return (
-    <div>
+    <div className="mb-[145px] md:mb-[111px] -mt-40 md:-mt-10">
       <Container>
         {/* top part */}
-        <div className="relative flex justify-between items-center mt-16 mb-4 md:mb-6">
+        <div className="relative flex justify-between items-center mb-4 md:mb-6">
           <div>
             <h5 className="text-base md:text-[19px] mb-1 text-primary">
               SUMMER
