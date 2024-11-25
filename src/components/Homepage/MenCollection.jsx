@@ -1,5 +1,4 @@
 "use client";
-import { LiaLongArrowAltUpSolid } from "react-icons/lia";
 import React, { useEffect, useState } from "react";
 import Container from "../ui/Container";
 import "./MenCollection.css";
@@ -12,6 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Image from "next/image";
+import Button from "../ui/Button";
 
 const MenCollection = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -73,14 +73,7 @@ const MenCollection = () => {
                       <h2 className="text-[23px] md:text-5xl font-semibold mb-4 md:mb-6">
                         {slide.title}
                       </h2>
-                      <div className="flex justify-center gap-0.5">
-                        <button className="bg-[#8F71E1] text-[#F4F8FF] py-[11px] px-[30.5px] rounded-full text-[19px]">
-                          Shop Now
-                        </button>
-                        <button className="bg-[#8F71E1] text-[#F4F8FF] h-12 w-12 rounded-full flex justify-center items-center">
-                          <LiaLongArrowAltUpSolid className="rotate-45 text-2xl" />
-                        </button>
-                      </div>
+                      <Button />
                     </div>
                   </div>
                 </div>
