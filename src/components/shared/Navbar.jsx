@@ -33,7 +33,7 @@ const Navbar = () => {
   );
 
   return (
-    <div>
+    <div className="bg-[#F5F3FF]">
       <Container>
         <div className="h-14 lg:h-20 flex items-center justify-between">
           {/* Menu Toggle Button (Mobile View) */}
