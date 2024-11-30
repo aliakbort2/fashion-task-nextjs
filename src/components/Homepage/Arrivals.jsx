@@ -14,7 +14,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const Arrivals = () => {
-  const [products, setProducts] = useState([]);
+  const [arrivals, setArrivals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Arrivals = () => {
           `${process.env.NEXT_PUBLIC_BASE_URL}/products/api/get-all`
         );
         const data = await res.json();
-        setProducts(data);
+        setArrivals(data);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -34,8 +34,8 @@ const Arrivals = () => {
     fetchProducts();
   }, []);
 
-  const filteredProducts = products.filter(
-    (product) => product.category === "arrivals"
+  const filteredArrivals = arrivals.filter(
+    (product) => product.category && product.category === "arrivals"
   );
 
   //console.log(filteredProducts);
@@ -91,7 +91,7 @@ const Arrivals = () => {
           className="mySwiper"
         >
           {/* Small Devices: Show 1 product per slide */}
-          {filteredProducts.map((product, index) => (
+          {filteredArrivals.map((product, index) => (
             <SwiperSlide key={index}>
               <div className="lg:hidden">
                 <ArrivalsCard product={product} />
@@ -100,8 +100,8 @@ const Arrivals = () => {
               {/* Large Devices: Show 8 products per row */}
               <div className="hidden lg:block">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {products.slice(index, index + 4).map((product, idx) => (
-                    <ArrivalsCard key={idx} product={product} />
+                  {filteredArrivals.slice(index, index + 4).map((item, idx) => (
+                    <ArrivalsCard key={idx} product={item} />
                   ))}
                 </div>
               </div>

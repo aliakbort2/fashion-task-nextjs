@@ -35,7 +35,7 @@ const BigDeal = () => {
   }, []);
 
   const filteredProducts = products.filter(
-    (product) => product.category === "summer"
+    (product) => product.category && product.category === "summer"
   );
 
   if (isLoading) {
